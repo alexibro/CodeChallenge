@@ -6,6 +6,67 @@
 docker-compose up
 ```
 
+### Execute API calls
+
+Postman collection has been provided to test both microservices.
+
+**Important:** In order to make calls to the proxy (and this redirects to the java microservice) it is necessary to login and copy the generated Token in the authentication headers of the other calls.
+
+Tweets reader base url: http://localhost:8080/api/ (expose it in order to test it directly)
+
+      Get Tweets: GET http://localhost:8080/api/tweet
+      
+      Get Tweet: GET http://localhost:8080/api/tweet/{id}
+      
+      Validate Tweet: PUT http://localhost:8080/api/tweet/{id}/validate
+      
+      Get validated Tweets by user: GET http://localhost:8080/api/tweet/validated?user={user}
+      
+      Get Top Hashtags: GET http://localhost:8080/api/tweet/hashtags
+          - Query param: limit (Default 10)
+      
+
+Auth proxy base url: http://localhost:3000/api/
+
+      Login: POST http://localhost:8080/login
+      
+          - BODY: {
+	                  "name":"user",
+	                  "pass":"pass"
+                  }
+                  
+      Get Tweets: GET http://localhost:8080/api/tweet
+      
+      Get Tweet: GET http://localhost:8080/api/tweet/{id}
+      
+      Validate Tweet: PUT http://localhost:8080/api/tweet/{id}/validate
+      
+      Get validated Tweets by user: GET http://localhost:8080/api/tweet/validated?user={user}
+      
+      Get Top Hashtags: GET http://localhost:8080/api/tweet/hashtags
+
+          - Query param: limit (Default 10)
+
+### Modify filters
+
+Change the parameters in the src/main/resources/**filter.properties**
+
+**Important:** To track keywords is required (Default: java)
+
+## Swagger Documentation
+
+The application has been documented using a swagger.
+Accessible from the endpoint: http://localhost:8080/swagger-ui.html#/
+
+## Deployment:
+
+### Multi-stage Dockerfile
+
+"Tweets reader" has a **multi-stage Dockerfile**:
+
+* **Builds the application JAR**
+* **Executes the JAR and expose it**
+
 ### Docker-compose
 
 * **tweets-reader service:** Builds image from Dockerfile, exposes and connects it to internal network. It uses H2 embedded database.
