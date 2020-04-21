@@ -1,5 +1,6 @@
 .DS_Store
 tweets-reader/target
+node_modules
 
 # Compiled class file
 *.class
