@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+    tweets-reader:
+        build:
+            context: ./tweets-reader
+            dockerfile: Dockerfile
+        image: alexibro/tweets-reader
+        networks: 
+            - internal_network
+        ports: 
+            - "8080:8080" 
+
+    auth-proxy:
+        build:
+            context: ./auth-proxy
+            dockerfile: Dockerfile
+        image: alexibro/auth-proxy
+        ports: 
+            - "3000:3000"
+        networks:
+            - internal_network
+        depends_on:
+            - tweets-reader
+        environment:
+            ENDPOINT: http://host.docker.internal:8080
+            PORT: 3000
+
+networks:
+    internal_network:

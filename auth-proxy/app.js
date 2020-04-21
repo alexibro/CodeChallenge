@@ -24,7 +24,9 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use('/api', createProxyMiddleware({ target: 'http://localhost:8080', changeOrigin: true }));
+const endpoint = process.env.ENDPOINT || 'http://localhost:8080'
+
+app.use('/api', createProxyMiddleware({ target: endpoint, changeOrigin: true }));
 
  /** Server deployment **/
 const port = process.env.PORT || '3000'
