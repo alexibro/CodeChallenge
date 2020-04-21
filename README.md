@@ -66,6 +66,10 @@ H2 database console: http://localhost:8080/h2-console
 The application has been documented using a swagger.
 Accessible from the endpoint: http://localhost:8080/swagger-ui.html#/
 
+## Test
+
+Unit tests has beed added for controllers layer.
+
 ## Deployment:
 
 ### Multi-stage Dockerfile
