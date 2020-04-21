@@ -33,7 +33,7 @@ module.exports = {
     },
     async getValidatedTweetsByUser(user) {
         var response;
-        await axios.get('http://localhost:8080/tweet/validated', { params: { user: 'pockafka' } })
+        await axios.get('http://localhost:8080/tweet/validated/' + user)
             .then(res => {
                 response = res 
             }).catch(error => {
@@ -41,7 +41,7 @@ module.exports = {
         });
         return response;
     },
-    async getTopHashtags(user) {
+    async getTopHashtags() {
         var response;
         await axios.get('http://localhost:8080/tweet/hashtags')
             .then(res => {

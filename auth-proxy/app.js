@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 const port = process.env.PORT || '3000'
 
-app.post('/api/login', apiLogin.generateToken)
+app.post('/login', apiLogin.generateToken)
 
 app.use(function(req, res, next) {
     console.log(req.headers.authorization)
@@ -22,11 +22,15 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get('/api/tweet', apiRoutes.getTweets)
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
+app.use('/api', createProxyMiddleware({ target: 'http://localhost:8080', changeOrigin: true }));
+
+/*app.get('/api/tweet', apiRoutes.getTweets)
 app.get('/api/tweet/:id', apiRoutes.getTweet)
 app.put('/api/tweet/:id/validate', apiRoutes.validateTweet)
 app.get('/api/tweet/validated', apiRoutes.getValidatedTweetsByUser)
-app.get('/api/tweet/hashtags', apiRoutes.getTopHashtags)
+app.get('/api/tweet/hashtags', apiRoutes.getTopHashtags)*/
 
 app.listen(port, () => {
     console.log(`[Express App] The app is listening on port: ${port}`)
