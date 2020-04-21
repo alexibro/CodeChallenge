@@ -1,0 +1,412 @@
+{
+	"info": {
+		"_postman_id": "b2a20b78-b12c-4554-811a-6d7db6cefa8c",
+		"name": "Twitter API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "twitter-reader",
+			"item": [
+				{
+					"name": "Get Tweets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TWEETS_READER_URL}}/api/tweet",
+							"host": [
+								"{{TWEETS_READER_URL}}"
+							],
+							"path": [
+								"api",
+								"tweet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tweet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TWEETS_READER_URL}}/api/tweet/{id}",
+							"host": [
+								"{{TWEETS_READER_URL}}"
+							],
+							"path": [
+								"api",
+								"tweet",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Tweet",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{TWEETS_READER_URL}}/api/tweet/{id}/validate",
+							"host": [
+								"{{TWEETS_READER_URL}}"
+							],
+							"path": [
+								"api",
+								"tweet",
+								"{id}",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Validated Tweets by User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TWEETS_READER_URL}}/api/tweet/validated?user={user}",
+							"host": [
+								"{{TWEETS_READER_URL}}"
+							],
+							"path": [
+								"api",
+								"tweet",
+								"validated"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "{user}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Top Hashtags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TWEETS_READER_URL}}/api/tweet/hashtags",
+							"host": [
+								"{{TWEETS_READER_URL}}"
+							],
+							"path": [
+								"api",
+								"tweet",
+								"hashtags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Top Hashtags limited",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{TWEETS_READER_URL}}/api/tweet/hashtags?limit=1",
+							"host": [
+								"{{TWEETS_READER_URL}}"
+							],
+							"path": [
+								"api",
+								"tweet",
+								"hashtags"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "auth-proxy",
+			"item": [
+				{
+					"name": "Login (Generate Token)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\":\"user\",\n\t\"pass\":\"pass\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{AUTH_PROXY_URL}}/login",
+							"host": [
+								"{{AUTH_PROXY_URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tweets",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AUTH_PROXY_URL}}/api/tweet",
+							"host": [
+								"{{AUTH_PROXY_URL}}"
+							],
+							"path": [
+								"api",
+								"tweet"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tweet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AUTH_PROXY_URL}}/api/tweet/{id}",
+							"host": [
+								"{{AUTH_PROXY_URL}}"
+							],
+							"path": [
+								"api",
+								"tweet",
+								"{id}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Tweet",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{AUTH_PROXY_URL}}/api/tweet/{id}/validate",
+							"host": [
+								"{{AUTH_PROXY_URL}}"
+							],
+							"path": [
+								"api",
+								"tweet",
+								"{id}",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Validated Tweets by User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AUTH_PROXY_URL}}/api/tweet/validated?user={user}",
+							"host": [
+								"{{AUTH_PROXY_URL}}"
+							],
+							"path": [
+								"api",
+								"tweet",
+								"validated"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "{user}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Top Hashtags",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AUTH_PROXY_URL}}/api/tweet/hashtags",
+							"host": [
+								"{{AUTH_PROXY_URL}}"
+							],
+							"path": [
+								"api",
+								"tweet",
+								"hashtags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Top Hashtags limited",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{AUTH_PROXY_URL}}/api/tweet/hashtags?limit=1",
+							"host": [
+								"{{AUTH_PROXY_URL}}"
+							],
+							"path": [
+								"api",
+								"tweet",
+								"hashtags"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": null,
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5d13946e-6566-48b2-b896-284d2a6cb407",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b165aef2-8651-42d3-b892-553a0965b11b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "6f874d54-0b4b-430b-a951-a67b9506ea98",
+			"key": "TWEETS_READER_URL",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"id": "b736827e-f186-4e00-bcd4-18ef2c88fdcf",
+			"key": "AUTH_PROXY_URL",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
