@@ -20,7 +20,7 @@ module.exports = {
         res.json(Response.data) // Tweet
     },
     getValidatedTweetsByUser: async (req, res) => {
-        const Response = await Connector.getValidatedTweetsByUser(req.query.user)
+        const Response = await Connector.getValidatedTweetsByUser(req.params.user)
         console.log(Response);
         res.status(Response.status)
         res.json(Response.data) // Tweets

@@ -12,7 +12,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/tweet")
+@RequestMapping("/api/tweet")
 public class TweetControllerImpl implements TweetController {
 
     @Autowired
