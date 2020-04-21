@@ -5,8 +5,6 @@ import org.springframework.stereotype.Component;
 import twitter4j.FilterQuery;
 import twitter4j.Status;
 
-import javax.annotation.PostConstruct;
-
 @Component
 public class TweetFilter {
 

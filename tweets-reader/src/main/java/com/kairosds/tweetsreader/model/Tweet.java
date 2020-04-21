@@ -1,5 +1,8 @@
 package com.kairosds.tweetsreader.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -7,17 +10,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@ApiModel(description = "Tweet")
 public class Tweet {
 
     @Id
+    @ApiModelProperty(notes = "The Tweet ID")
     private long id;
 
+    @ApiModelProperty(notes = "The Tweet writer")
     private String user;
+    @ApiModelProperty(notes = "The Tweet text (Tweet content)")
     private String text;
+    @ApiModelProperty(notes = "The location from which the Tweet was written")
     private String geoLocation;
+    @ApiModelProperty(notes = "Indicates if the Tweet has been validated")
     private boolean validated;
 
     @ElementCollection
+    @ApiModelProperty(notes = "The Hashtags contained in the Tweet")
     private List<String> hashtags;
 
     public Tweet(){}
