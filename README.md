@@ -26,7 +26,7 @@ Tweets reader base url: http://localhost:8080/api/ (expose it in order to test i
           - Query param: limit (Default 10)
       
 
-Auth proxy base url: http://localhost:3000/api/
+Auth proxy base url: http://localhost:3000/
 
       Login: POST http://localhost:8080/login
       
@@ -52,6 +52,14 @@ Auth proxy base url: http://localhost:3000/api/
 Change the parameters in the src/main/resources/**filter.properties**
 
 **Important:** To track keywords is required (Default: java)
+
+### Additional Information
+
+H2 embedded database restricts Tweet text to VARCHAR(255). If a Tweet exceeds this length, the database throws an exception but saves the truncated tweet. This behavior has been kept for efficiency reasons during development. Easily modifiable.
+
+H2 database console: http://localhost:8080/h2-console
+- user: tweets
+- password: pass
 
 ## Swagger Documentation
 
