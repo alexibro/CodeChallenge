@@ -32,35 +32,34 @@ public class TwitterListener {
 
             @Override
             public void onDeletionNotice(StatusDeletionNotice arg) {
-                System.out.println("Got a status deletion notice id:" + arg.getStatusId());
+                logger.info("Got a status deletion notice id:" + arg.getStatusId());
             }
 
             @Override
             public void onScrubGeo(long userId, long upToStatusId) {
-                System.out.println("Got scrub_geo event userId:" + userId + " upToStatusId:" + upToStatusId);
+                logger.info("Got scrub_geo event userId:" + userId + " upToStatusId:" + upToStatusId);
             }
 
             @Override
             public void onStallWarning(StallWarning warning) {
-                System.out.println("Got stall warning:" + warning);
+                logger.info("Got stall warning:" + warning);
             }
 
             @Override
             public void onStatus(Status status) {
                 if(tweetFilter.filter(status)) {
-                    System.out.println(status.getUser().getName() + " : " + status.getText());
+                    logger.info(status.getUser().getName() + " : " + status.getText());
                     tweetService.save(status);
                 }
-
             }
 
             @Override
             public void onTrackLimitationNotice(int numberOfLimitedStatuses) {
-                System.out.println("Got track limitation notice:" + numberOfLimitedStatuses);
+                logger.info("Got track limitation notice:" + numberOfLimitedStatuses);
             }
         };
 
-        System.out.println(tweetFilter.getFilterQuery().toString());
+        logger.info(tweetFilter.getFilterQuery().toString());
 
         TwitterStream twitterStream = new TwitterStreamFactory().getInstance();
         twitterStream.addListener(listener);

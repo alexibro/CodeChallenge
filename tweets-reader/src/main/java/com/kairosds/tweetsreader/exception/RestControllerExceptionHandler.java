@@ -15,7 +15,7 @@ import java.util.NoSuchElementException;
 @ControllerAdvice
 public class RestControllerExceptionHandler extends ResponseEntityExceptionHandler {
 
-    private final String NOT_FOUND_RESPONSE = "{\"response\":\"Resource not found\"}";
+    private final String NOT_FOUND_RESPONSE = "{\"response\":\"resource not found\"}";
 
     @ExceptionHandler(NoSuchElementException.class)
     protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {

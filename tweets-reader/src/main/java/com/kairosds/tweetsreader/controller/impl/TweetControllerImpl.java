@@ -24,8 +24,8 @@ public class TweetControllerImpl implements TweetController {
         return this.tweetService.getTweets();
     }
 
-    @GetMapping("/validated/{user}")
-    public List<Tweet> getValidatedTweetsByUser(@PathVariable String user) {
+    @GetMapping("/validated")
+    public List<Tweet> getValidatedTweetsByUser(@RequestParam String user) {
         return this.tweetService.getValidatedTweetsByUser(user);
     }
 

@@ -22,9 +22,8 @@ module.exports = {
         Remove "Bearer " in order to check if the token exists
         
         Example: "Bearer 5yVkDus2q4LVfKe2hciVaZ" -> "5yVkDus2q4LVfKe2hciVaZ"
-        /*/
+        */
         var token = header.substring(7, header.length)
-        console.log(token)
         return tokens.has(token)
     }
 }

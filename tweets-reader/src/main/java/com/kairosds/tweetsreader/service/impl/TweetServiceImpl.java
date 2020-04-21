@@ -47,6 +47,7 @@ public class TweetServiceImpl implements TweetService {
         return this.tweetRepository.findTopHashtags(limit);
     }
 
+    // Convert Status (Twitter4j tweet) to Tweet entity and save it
     public Tweet save(Status status) {
         String geoLocation = status.getGeoLocation() == null ? "" : status.getGeoLocation().toString();
         Tweet tweet = new Tweet(status.getId(), status.getUser().getName(), status.getText(), geoLocation);
