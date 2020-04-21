@@ -2,6 +2,7 @@
 
 ## How to run
 
+In the project's direct;
 ```
 docker-compose up
 ```
@@ -10,7 +11,7 @@ docker-compose up
 
 Postman collection has been provided to test both microservices.
 
-**Important:** In order to make calls to the proxy (and this redirects to the java microservice) it is necessary to login and copy the generated Token in the authentication headers of the other calls.
+**Important:** In order to make calls to the proxy (and this redirects to the java microservice) it is **necessary to login and copy the generated Token in the authentication headers** of the other calls.
 
 Tweets reader base url: http://localhost:8080/api/ (expose it in order to test it directly)
 
@@ -55,7 +56,7 @@ Change the parameters in the src/main/resources/**filter.properties**
 
 ### Additional Information
 
-H2 embedded database restricts Tweet text to VARCHAR(255). If a Tweet exceeds this length, the database throws an exception but saves the truncated tweet. This behavior has been kept for efficiency reasons during development. Easily modifiable.
+H2 embedded database **restricts Tweet text** to VARCHAR(255). If a Tweet exceeds this length, the database throws an exception but saves the truncated tweet. This behavior has been kept for **efficiency reasons during development**. Easily modifiable.
 
 H2 database console: http://localhost:8080/h2-console
 - user: tweets
