@@ -68,7 +68,8 @@ Accessible from the endpoint: http://localhost:8080/swagger-ui.html#/
 
 ## Test
 
-Unit tests has beed added for controllers layer.
+Unit tests has beed added for controllers layer. 
+(As a sample. Unit tests for persistance and services layer could be implemented, as well as integration tests)
 
 ## Deployment:
 
