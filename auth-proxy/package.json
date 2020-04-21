@@ -1,0 +1,26 @@
+{
+  "name": "auth-proxy",
+  "version": "1.0.0",
+  "description": "Auth Proxy",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexibro/CodeChallenge.git"
+  },
+  "author": "Alejandro Quesada",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "uuid-token-generator": "^1.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/alexibro/CodeChallenge/issues"
+  },
+  "homepage": "https://github.com/alexibro/CodeChallenge#readme",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
