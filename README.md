@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.com/alexibro/CodeChallenge.svg?branch=master)](https://travis-ci.com/alexibro/CodeChallenge)
+
 # Code Challenge
 
 ## How to run
@@ -74,7 +77,7 @@ Unit tests has beed added for controllers layer.
 
 ### CI
 
-A connection between Travis and Github could not be established for maintenance. The Travis file has been included, which passes the tests, creates the images of both microservices and uploads them to the Docker Hub. 
+The Travis file has been included, which passes the tests, builds the images of both microservices (and uploads them to the Docker Hub). 
 
 ## Deployment:
 
