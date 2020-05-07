@@ -16,7 +16,7 @@ oauth.accessToken=1249979907217797120-QWUwduRBXu0ESlLpfPydBg70hzVabO
 oauth.accessTokenSecret=6ck00w2UQ7tcL95CYBLSnTROOeOz7Kohsj3xnNfAH0D7z
 ```
 
-In the project's direct;
+In the project's directory:
 ```
 docker-compose up
 ```
