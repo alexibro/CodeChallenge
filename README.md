@@ -5,6 +5,17 @@
 
 ## How to run
 
+You need access to Twitter API (https://developer.twitter.com/) and copy your keys and tokens into **twitter4j.properties** file. (Path: tweets-reader/src/main/resources/twitter4j.properties)
+
+
+Here's an example (these tokens are not valid):
+```
+oauth.consumerKey=WPsDYPtt3k1uLssx4q7iyyBlM
+oauth.consumerSecret=JJvlAjBmfMhCaJwVIe0bfsgcjxjPwEoPKLZIbxvnqZ5xkULTPk
+oauth.accessToken=1249979907217797120-QWUwduRBXu0ESlLpfPydBg70hzVabO
+oauth.accessTokenSecret=6ck00w2UQ7tcL95CYBLSnTROOeOz7Kohsj3xnNfAH0D7z
+```
+
 In the project's direct;
 ```
 docker-compose up
